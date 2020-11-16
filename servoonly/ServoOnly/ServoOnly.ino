@@ -1,8 +1,19 @@
+/* 
+ *  Servo brake controller for RC winch
+ *  When Winch footswitch is released servo is extended to brake position, 
+ *  pauses for a dwell time (braking) before returning to retracted position
+ *  
+ *  Author: Alison Butcher
+ *  Version: 1.1
+ *  Date: 16 November 2020
+ */
+
+
 #include <Servo.h>
 Servo servo;   
 
 // IO Addresses
-#define FOOTSWITCH_IN     2             // Address of Footswitch input
+#define FOOTSWITCH_IN     2             // Address of Footswitch input (note: active low)
 #define PWM_OUTPUT_PIN    9             // Address of PWM output pin for servo control
 #define MAX_POT           A2            // Address of potentiometer controlling max position
 #define MIN_POT           A1            // Address of potentiometer controller min position
@@ -12,26 +23,31 @@ Servo servo;
 #define DWELL_MIN         300           // Min Dwell time in milliseconds
 #define DWELL_MAX         10000         // Max Dwell time in milliseconds
 #define DBOUNCE           100           // Debounce time in milliseconds
-#define SERVO_MAX         135           // Servo position for Braking
-#define SERVO_MIN         45            // Servo position for Retracting 
+#define SERVO_MAX         130           // Servo position for Braking
+#define SERVO_MIN         50            // Servo position for Retracting 
 
 // Globals
 int max_t = SERVO_MAX;                  // Servo position for Braking
 int min_t = SERVO_MIN;                  // Servo position for Retracting
 unsigned long dwell = DWELL_MAX;        // Braking Dwell time before retracting in milliseconds
-bool dwell_timing = false;
-unsigned long prevMillis = 0;           // Used by Dwell timing
-bool footswitch = false;
+unsigned long prev_ms = 0;              // Used by Dwell timing
+bool footswitch = false;                // current state of footswitch
+bool prev_footswitch = false;           // previous state of footswitch
+bool brake_on;                          // true when brake is activated
 
-// Setup function runs once at power on
+/*
+ * Setup runs once at power on
+ */
 void setup() {
   servo.attach(PWM_OUTPUT_PIN);               // define output pin for PWM to servo
   pinMode(FOOTSWITCH_IN, INPUT_PULLUP);       // define input pin for footswitch
   pinMode(LED_BUILTIN, OUTPUT);               // define output 'brake on' indicator led
-  servo.write(SERVO_MIN);                     // Release brake when power on
+  brakeOff();                                 // always start with brake disengaged
 }
 
-// Main program Loop
+/*
+ * Main Program
+ */
 void loop() {
 
   // Get potentionmeter values
@@ -39,23 +55,25 @@ void loop() {
   min_t = getPoint(MIN_POT);
   max_t = getPoint(MAX_POT);
   
-
   // Get debounced footswitch state
   fsDebounce();
 
-  // brake control
-  if (footswitch == false) {
-    brakeOn();
-    // TODO: trigger dwell time
-  } else {
-    brakeOff();
-  }
+  unsigned long current_ms = millis();
 
-  // Dwell timer
-  unsigned long currentMillis = millis();
-  if ((currentMillis - prevMillis) > dwell) {
-    prevMillis = currentMillis;
-    
+  // Brake Control
+  if (!footswitch) {                      // Any time footswitch is activated brake turns off
+    brakeOff();
+  } else {                                // not footswitch
+    if (!prev_footswitch) {
+      brakeOn();                          // brake on is triggered on rising edge only
+      prev_ms = current_ms;               // get start time for dwell 
+    }
+  }
+  prev_footswitch = footswitch;
+
+  // Brake off after dwell
+  if (brake_on && (current_ms - prev_ms) > dwell) {
+    brakeOff();
   }
 
 }
@@ -93,13 +111,14 @@ void fsDebounce() {
 void brakeOn() {
   servo.write(max_t);
   digitalWrite(LED_BUILTIN, HIGH);
+  brake_on = true;
 }
 
 void brakeOff() {
   servo.write(min_t);
   digitalWrite(LED_BUILTIN, LOW);
+  brake_on = false;
 }
-
 
 
 // Given a reference p to an analog input this function returns a scaled value to servo travel
