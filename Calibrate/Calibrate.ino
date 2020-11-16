@@ -26,8 +26,6 @@ unsigned long previousMillis = 0;       // Used by Dwell timing
 // Setup function runs once at power on
 void setup() {
   servo.attach(PWM_OUTPUT_PIN);               // define output pin for PWM to servo
-  attachInterrupt(0, winchOnISR, RISING);     // define interrupt for winch on
-  attachInterrupt(1, winchOffISR, FALLING);   // define interrupt for winch off
   pinMode(LED_BUILTIN, OUTPUT);               // brake on indicator led
 }
 
@@ -42,32 +40,12 @@ void loop() {
 
   unsigned long currentMillis = millis();
 
-  // brake off conditions
-  if (servo_on) {
-    
-    // winch started
-    if (!braking) brakeOff();
-
-    // dwell timer
-    if (currentMillis - previousMillis >= dwell) {
-      brakeOff();
-    }
-    previousMillis = currentMillis;
-  }
-
-  // brake on conditions
-  if (!servo_on && braking) {
-    servo_on = true;
-    digitalWrite(LED_BUILTIN, HIGH);
-    servo.write(max_t);
-  }
-
-}
-
-void brakeOff() {
-  servo_on = false;
+  servo.write(max_t);
+  delay(4500);
   servo.write(min_t);
-  digitalWrite(LED_BUILTIN, LOW);
+  delay(4500);
+  
+
 }
 
 
@@ -84,25 +62,4 @@ int getDwell() {
   int q = analogRead(DWELL_POT);                                    // aquire raw dwell from potentiometer
   unsigned long dwell = map(q, 0, 1023, DWELL_MIN, DWELL_MAX);      // scaled dwell value 
   return dwell;
-}
-
-
-void winchOnISR()
-{
- static unsigned long last_interrupt_time = 0;
- unsigned long interrupt_time = millis();
- if (interrupt_time - last_interrupt_time > DBOUNCE)
- {
-   braking = false;
- }
- last_interrupt_time = interrupt_time;
-}
-
-void winchOffISR() {
-  static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > DBOUNCE) {
-    braking = true;
-  }
-   last_interrupt_time = interrupt_time;
 }
