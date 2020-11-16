@@ -1,36 +1,26 @@
 #include <Servo.h>
-Servo servo;                  
+Servo servo;   
 
 // IO Addresses
-const int FOOTSWITCH_IN = 2;            // Address of Footswitch input
-const int DWELL_POT = A0;               // Address of potentiometer controlling dwell time of brake
-const int MIN_POT = A1;                 // Address of potentiometer controller min position
-const int MAX_POT = A2;                 // Address of potentiometer controlling max position
-const int PWM_OUTPUT_PIN = 9;           // Address of PWM output pin for servo control
+#define FOOTSWITCH_IN     2             // Address of Footswitch input
+#define PWM_OUTPUT_PIN    9             // Address of PWM output pin for servo control
+#define MAX_POT           A2            // Address of potentiometer controlling max position
+#define MIN_POT           A1            // Address of potentiometer controller min position
+#define DWELL_POT         A0            // Address of potentiometer controlling dwell time of brake
 
 // Constants
-const int SERVO_MAX = 135;              // Max travel position of servo (adjust for each specific servo)
-const int SERVO_MIN = 45;               // Min travel position of servo (adjust for each specific servo)
-const unsigned long DWELL_MIN = 300;    // Min Dwell time in milliseconds
-const unsigned long DWELL_MAX = 10000;  // Max Dwell time in milliseconds
-const unsigned long DBOUNCE = 200;      // Debounce time in milliseconds
+#define DWELL_MIN         300           // Min Dwell time in milliseconds
+#define DWELL_MAX         10000         // Max Dwell time in milliseconds
+#define DBOUNCE           100           // Debounce time in milliseconds
+#define SERVO_MAX         135           // Servo position for Braking
+#define SERVO_MIN         45            // Servo position for Retracting 
 
 // Globals
 int max_t = SERVO_MAX;                  // Servo position for Braking
 int min_t = SERVO_MIN;                  // Servo position for Retracting
-unsigned long dwell = DWELL_MAX;        // Braking Dwell time before retracting
-
-bool brake_on = false;
-bool servo_on = false;
+unsigned long dwell = DWELL_MAX;        // Braking Dwell time before retracting in milliseconds
 bool dwell_timing = false;
-unsigned long prevMillis = 0;       // Used by Dwell timing
-
-// Footswitch / Debounce variables
-//int footState;
-//int prevFootState = LOW;
-//int prevBounceState = LOW;
-//unsigned long prevDBTime = 0;       // Previous debounce time (at last check)
-
+unsigned long prevMillis = 0;           // Used by Dwell timing
 bool footswitch = false;
 
 // Setup function runs once at power on
@@ -41,7 +31,6 @@ void setup() {
   servo.write(SERVO_MIN);                     // Release brake when power on
 }
 
-
 // Main program Loop
 void loop() {
 
@@ -49,6 +38,7 @@ void loop() {
   dwell = getDwell();
   min_t = getPoint(MIN_POT);
   max_t = getPoint(MAX_POT);
+  
 
   // Get debounced footswitch state
   fsDebounce();
@@ -56,11 +46,17 @@ void loop() {
   // brake control
   if (footswitch == false) {
     brakeOn();
+    // TODO: trigger dwell time
   } else {
     brakeOff();
   }
 
-  //unsigned long currentMillis = millis();
+  // Dwell timer
+  unsigned long currentMillis = millis();
+  if ((currentMillis - prevMillis) > dwell) {
+    prevMillis = currentMillis;
+    
+  }
 
 }
 
@@ -71,8 +67,7 @@ void fsDebounce() {
   static int prevFootState = LOW;                                 // Previous (debounced/valid) footswitch status
   static int prevBounceState = LOW;                               // Previous RAW bounce state of footswitch input
 
-  // read footswitch state
-  int footState = digitalRead(FOOTSWITCH_IN);                     
+  int footState = digitalRead(FOOTSWITCH_IN);                     // read footswitch state
 
   // Footswitch detect contact bounce
   if (footState != prevBounceState) {
@@ -83,6 +78,7 @@ void fsDebounce() {
   // Footswitch debounced state change
   if ((millis() - prevDBTime) > DBOUNCE) {
     // If here then its a debounced and valid state
+    
     if (prevFootState == HIGH && footState == LOW) {
       // footswitch is off
       footswitch = false;
