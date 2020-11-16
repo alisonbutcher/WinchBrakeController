@@ -83,30 +83,30 @@ void loop() {
  */
 void fsDebounce() {
   
-  static unsigned long prevDBTime = 0;                            // Previous debounce time (at last check)
-  static int prevFootState = LOW;                                 // Previous (debounced/valid) footswitch status
-  static int prevBounceState = LOW;                               // Previous RAW bounce state of footswitch input
+  static unsigned long prev_db_time = 0;                            // Previous debounce time (at last check)
+  static int prev_foot_state = LOW;                                 // Previous (debounced/valid) footswitch status
+  static int prev_bounce_state = LOW;                               // Previous RAW bounce state of footswitch input
 
-  int footState = digitalRead(FOOTSWITCH_IN);                     // read footswitch state
+  int foot_state = digitalRead(FOOTSWITCH_IN);                     // read footswitch state
 
   // Footswitch detect contact bounce
-  if (footState != prevBounceState) {
-    prevDBTime = millis();        // reset debounce timing
-    prevBounceState = footState;
+  if (foot_state != prev_bounce_state) {
+    prev_db_time = millis();        // reset debounce timing
+    prev_bounce_state = foot_state;
   }
 
   // Footswitch debounced state change
-  if ((millis() - prevDBTime) > DBOUNCE) {
+  if ((millis() - prev_db_time) > DBOUNCE) {
     // If here then its a debounced and valid state
     
-    if (prevFootState == HIGH && footState == LOW) {
+    if (prev_foot_state == HIGH && foot_state == LOW) {
       // footswitch is off
       footswitch = false;
-    } else if (prevFootState == LOW && footState == HIGH) {
+    } else if (prev_foot_state == LOW && foot_state == HIGH) {
       // footswitch is on
       footswitch = true;
     }
-    prevFootState = footState;
+    prev_foot_state = foot_state;
   }
 }
 
