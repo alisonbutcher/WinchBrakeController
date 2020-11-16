@@ -6,13 +6,14 @@ const int DWELL_POT = A0;               // Address of potentiometer controlling 
 const int MIN_POT = A1;                 // Address of potentiometer controller min position
 const int MAX_POT = A2;                 // Address of potentiometer controlling max position
 const int PWM_OUTPUT_PIN = 9;           // Address of PWM output pin for servo control
+const int FOOTSWITCH_IN = 2;            // Footswitch input pin
 
 // Constants
 const int SERVO_MAX = 135;              // Max travel position of servo (adjust for each specific servo)
 const int SERVO_MIN = 45;               // Min travel position of servo (adjust for each specific servo)
 const unsigned long DWELL_MIN = 300;    // Min Dwell time in milliseconds
 const unsigned long DWELL_MAX = 10000;  // Max Dwell time in milliseconds
-const unsigned long DBOUNCE = 200;      // Debounce time in milliseconds
+const unsigned long DBOUNCE = 50;      // Debounce time in milliseconds
 
 // Globals
 int max_t = SERVO_MAX;                  // Servo position for Braking
@@ -23,10 +24,31 @@ bool servo_on = false;
 bool dwell_timing = false;
 unsigned long previousMillis = 0;       // Used by Dwell timing
 
+int BrakeState = HIGH;
+
+
+int footState;
+int prevFootState = LOW;
+int prevBounceState = LOW;
+unsigned long prevDBTime = 0;
+
+
+// Variables will change:
+int lastSteadyState = LOW;       // the previous steady state from the input pin
+int lastFlickerableState = LOW;  // the previous flickerable state from the input pin
+int currentState;                // the current reading from the input pin
+
+
+
+int ledState = HIGH;
+
 // Setup function runs once at power on
 void setup() {
   servo.attach(PWM_OUTPUT_PIN);               // define output pin for PWM to servo
-  pinMode(LED_BUILTIN, OUTPUT);               // brake on indicator led
+  pinMode(LED_BUILTIN, OUTPUT);               // define brake on indicator LED (onboard the nano)
+  pinMode(FOOTSWITCH_IN, INPUT_PULLUP);       // define input pin for footswtich
+
+  digitalWrite(LED_BUILTIN, ledState);
 }
 
 
@@ -38,12 +60,30 @@ void loop() {
   min_t = getPoint(MIN_POT);
   max_t = getPoint(MAX_POT);
 
-  unsigned long currentMillis = millis();
+  //unsigned long currentMillis = millis();
 
-  servo.write(max_t);
-  delay(4500);
-  servo.write(min_t);
-  delay(4500);
+  currentState= digitalRead(FOOTSWITCH_IN);
+  
+  if (currentState != lastFlickerableState) {
+    prevDBTime = millis();    // reset debounce timing
+    lastFlickerableState = currentState;
+  }
+
+  if ((millis() - prevDBTime) > DBOUNCE) {
+    // debounce time reached, its a valid state
+
+    // footswitch state has changed
+    if (lastSteadyState == HIGH && currentState == LOW) {
+      digitalWrite(LED_BUILTIN, HIGH);
+    } else if(lastSteadyState == LOW && currentState == HIGH) {
+      digitalWrite(LED_BUILTIN, LOW);
+    }
+
+    lastSteadyState = currentState; 
+  }
+
+       
+  
   
 
 }
