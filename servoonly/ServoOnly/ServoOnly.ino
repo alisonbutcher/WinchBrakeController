@@ -78,7 +78,9 @@ void loop() {
 
 }
 
-// Handles Debouncing of Footswitch
+/*
+ * Handles debouncing of footswitch input
+ */
 void fsDebounce() {
   
   static unsigned long prevDBTime = 0;                            // Previous debounce time (at last check)
@@ -108,12 +110,18 @@ void fsDebounce() {
   }
 }
 
+/*
+ * Moves brake to engaged (braking) position
+ */
 void brakeOn() {
   servo.write(max_t);
   digitalWrite(LED_BUILTIN, HIGH);
   brake_on = true;
 }
 
+/*
+ * Moves brake to disengaged (release) position
+ */
 void brakeOff() {
   servo.write(min_t);
   digitalWrite(LED_BUILTIN, LOW);
@@ -121,14 +129,18 @@ void brakeOff() {
 }
 
 
-// Given a reference p to an analog input this function returns a scaled value to servo travel
+/*
+ * Given reference p to an analog input returns a scaled value for servo travel (min or max)
+ */
 int getPoint(int p) {
   int q = analogRead(p);                            // read raw position of Potentiometer
   q = map(q, 0, 1023, SERVO_MIN, SERVO_MAX);        // Scale position to maximum servo travel
   return q;
 }
 
-// Reads dwell from Dwell Potentiometer and scales value
+/*
+ * Reads dwell from dwell potentiometer and scales value
+ */
 int getDwell() {
   int q = analogRead(DWELL_POT);                                    // aquire raw dwell from potentiometer
   unsigned long dwell = map(q, 0, 1023, DWELL_MIN, DWELL_MAX);      // scaled dwell value 
