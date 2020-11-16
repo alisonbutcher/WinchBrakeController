@@ -19,7 +19,10 @@ const unsigned long DBOUNCE = 50;      // Debounce time in milliseconds
 int max_t = SERVO_MAX;                  // Servo position for Braking
 int min_t = SERVO_MIN;                  // Servo position for Retracting
 unsigned long dwell = DWELL_MAX;        // Braking Dwell time before retracting
-bool braking = false;
+
+
+bool brake = false;
+
 bool servo_on = false;
 bool dwell_timing = false;
 unsigned long previousMillis = 0;       // Used by Dwell timing
@@ -75,8 +78,10 @@ void loop() {
     // footswitch state has changed
     if (lastSteadyState == HIGH && currentState == LOW) {
       digitalWrite(LED_BUILTIN, HIGH);
+      brake = true;
     } else if(lastSteadyState == LOW && currentState == HIGH) {
       digitalWrite(LED_BUILTIN, LOW);
+      brake = false;
     }
 
     lastSteadyState = currentState; 
