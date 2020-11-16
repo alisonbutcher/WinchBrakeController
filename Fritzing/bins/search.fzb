@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module fritzingVersion="0.9.4.2019-12-01.CD-498" icon="Search.png" search="regulator">
+    <title>Search</title>
+    <instances>
+        <instance moduleIdRef="SparkFun-PowerIC-LM2621-SMD" modelIndex="7353" path="/app/share/fritzing/parts/core/sparkfun-poweric-lm2621-smd.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-LM2931-" modelIndex="7354" path="/app/share/fritzing/parts/core/sparkfun-poweric-lm2931-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="1238DBDC00-voltage-reg_lm317" modelIndex="7355" path="/app/share/fritzing/parts/core/voltage_regulator_lm317.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-LM5574-" modelIndex="7356" path="/app/share/fritzing/parts/core/sparkfun-poweric-lm5574-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SPARKCORE_v1_fix" modelIndex="7357" path="/app/share/fritzing/parts/core/SPARKCORE_v1_fix.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="cellular shield-v12" modelIndex="7358" path="/app/share/fritzing/parts/core/cellular shield-v12.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="ESP8266-Thing-Dev" modelIndex="7359" path="/app/share/fritzing/parts/core/ESP8266-Thing-Dev.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-RF-VENUS638FLPX-L-" modelIndex="7360" path="/app/share/fritzing/parts/core/sparkfun-rf-venus638flpx-l-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-SPX29302-" modelIndex="7362" path="/app/share/fritzing/parts/core/sparkfun-poweric-spx29302-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_NCP1400-SOT23-5" modelIndex="7363" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_ncp1400-sot23-5.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_LD1117VXX-" modelIndex="7364" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_ld1117vxx-.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="Memoire-1.0" modelIndex="7365" path="/app/share/fritzing/parts/core/Memoire-1.0.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="PowerCell-v13" modelIndex="7367" path="/app/share/fritzing/parts/core/PowerCell Lipo Charger Booster v13.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_78XX-TO-92" modelIndex="7368" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_78xx-to-92.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-MIC2571-SMD" modelIndex="7369" path="/app/share/fritzing/parts/core/sparkfun-poweric-mic2571-smd.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="MIDI Music Shield-v13" modelIndex="7370" path="/app/share/fritzing/parts/core/MIDI Music Shield-v13.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_MIC5219-SMD" modelIndex="7372" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_mic5219-smd.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_LD1085-D2" modelIndex="7373" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_ld1085-d2.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_317-DPACK" modelIndex="7374" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_317-dpack.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="ludusProtoShieldWireless" modelIndex="7375" path="/app/share/fritzing/parts/core/ludusProtoShieldWireless.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_TPS61040-SMD" modelIndex="7376" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_tps61040-smd.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="1238DBDC00-voltage-reg_7805" modelIndex="7377" path="/app/share/fritzing/parts/core/voltage_regulator_7805.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_MIC2920-" modelIndex="7378" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_mic2920-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-LM5007-" modelIndex="7379" path="/app/share/fritzing/parts/core/sparkfun-poweric-lm5007-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_NCP50X-" modelIndex="7380" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_ncp50x-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="ArduinoBluetoothMatev13" modelIndex="7381" path="/app/share/fritzing/parts/core/ArduinoBluetoothMatev13.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="huzzah_esp8266" modelIndex="7382" path="/app/share/fritzing/parts/core/huzzah_esp8266.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_317-SINK" modelIndex="7384" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_317-sink.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="c624c0ff7a2eb1ca7994123ee87f58fb" modelIndex="7385" path="/app/share/fritzing/parts/core/BASIC_Stamp_1.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_MIC5216-" modelIndex="7387" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_mic5216-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="XBee-Regulated-v12" modelIndex="7388" path="/app/share/fritzing/parts/core/XBee-Regulated-v12.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_MIC5235-" modelIndex="7390" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_mic5235-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="Arduino-Pro-Mini-v13-a4+5" modelIndex="7391" path="/app/share/fritzing/parts/core/Arduino-Pro-Mini-v13-a4+5.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="1238DBDC00-voltage-reg_7833" modelIndex="7392" path="/app/share/fritzing/parts/core/voltage_regulator_7833.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_LDO-SMD" modelIndex="7393" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_ldo-smd.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_LM1117-SOT223" modelIndex="7394" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_lm1117-sot223.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="EasyDriver_v44" modelIndex="7395" path="/app/share/fritzing/parts/core/EasyDriver_v44.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-LM2931_FIXED-" modelIndex="7396" path="/app/share/fritzing/parts/core/sparkfun-poweric-lm2931_fixed-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="DRV8825_breakout" modelIndex="7397" path="/app/share/fritzing/parts/core/DRV8825_breakout.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="pololu0002_a988" modelIndex="7398" path="/app/share/fritzing/parts/core/pololu0002_a988.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-PQ1CY1032Z-" modelIndex="7399" path="/app/share/fritzing/parts/core/sparkfun-poweric-pq1cy1032z-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="HMC5883L_Breakout-v11" modelIndex="7400" path="/app/share/fritzing/parts/core/HMC5883L_Breakout-v11.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_LDO-SMD2" modelIndex="7401" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_ldo-smd2.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-LT1528-" modelIndex="7402" path="/app/share/fritzing/parts/core/sparkfun-poweric-lt1528-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-ADM1087-SC-70" modelIndex="7403" path="/app/share/fritzing/parts/core/sparkfun-poweric-adm1087-sc-70.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="ludusProtoShield" modelIndex="7404" path="/app/share/fritzing/parts/core/ludusProtoShield.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="Arduino-Pro-Mini3.3V" modelIndex="7405" path="/app/share/fritzing/parts/core/Arduino-Pro-Mini_3.3v-v14.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_TPS76433-SOT23-5" modelIndex="7406" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_tps76433-sot23-5.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-BD10KA5WF-E2-" modelIndex="7407" path="/app/share/fritzing/parts/core/sparkfun-poweric-bd10ka5wf-e2-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_78XX-SINK" modelIndex="7408" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_78xx-sink.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="AnalogDevices_ADP3300ARTZ" modelIndex="7409" path="/app/share/fritzing/parts/core/ADI_ADP3300.AnalogDevices_ADP3300ARTZ.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_78XX--TO-220" modelIndex="7411" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_78xx--to-220.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-LM3480IM4-" modelIndex="7412" path="/app/share/fritzing/parts/core/sparkfun-poweric-lm3480im4-.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_MC33269-DT" modelIndex="7413" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_mc33269-dt.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="PHOTON_fix" modelIndex="7414" path="/app/share/fritzing/parts/core/PHOTON_fix.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="1238DBdfgDC00-vofdghfhjaer" modelIndex="7415" path="/app/share/fritzing/parts/core/SMD_Vreg_7805.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="Arduino-Pro-Mini.5v" modelIndex="7416" path="/app/share/fritzing/parts/core/Arduino-Pro-Mini_5v-v14.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_317-SMD" modelIndex="7417" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_317-smd.fzp" flippedSMD="true">
+            <views/>
+        </instance>
+        <instance moduleIdRef="TMP102_Breakout-v11" modelIndex="7418" path="/app/share/fritzing/parts/core/TMP102_Breakout-v11.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="SparkFun-PowerIC-V_REG_78XX-SIDE" modelIndex="7419" path="/app/share/fritzing/parts/core/sparkfun-poweric-v_reg_78xx-side.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="054b3d1b56ef5470113b3e56d5dfc532" modelIndex="7420" path="/app/share/fritzing/parts/core/KA78R05_Low_Dropout_Voltage_Regulator.fzp">
+            <views/>
+        </instance>
+    </instances>
+</module>

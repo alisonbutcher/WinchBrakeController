@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" height="0.6in" y="0in" viewBox="0 0 25.4 15.24" x="0in" version="1.2"  baseProfile="tiny" width="1in">
+    <desc>
+        <referenceFile>voltage_regulator_LM317.svg</referenceFile>
+    </desc>
+    <g  gorn="0.0" id="schematic">
+        <rect height="9.8425" fill="#FFFFFF" y="0.15875" x="5.23875" stroke-width="0.3175"  stroke-linecap="round" stroke="#000000" width="14.9225" class="interior rect"/>
+        <line fill="none" stroke-width="0.246944" x2="25.2765"  stroke-linecap="round" x1="20.1965" y1="2.54" y2="2.54" stroke="#787878" gorn="0.0.1" id="connector2pin" class="pin"/>
+        <text fill="#8c8c8c" y="2.16958" stroke-width="0" x="22.7365"  font-size="0.881944" stroke="none" font-family="'Droid Sans'" text-anchor="middle" class="text">2</text>
+        <text fill="#8c8c8c" y="2.78694" stroke-width="0" x="19.7026"  font-size="1.23472" stroke="none" font-family="'Droid Sans'" text-anchor="end" class="text">OUT</text>
+        <rect height="0.246944" fill="none" y="2.41653" x="25.2765" stroke-width="0"  stroke="none" gorn="0.0.4" id="connector2terminal" width="0.246944" class="terminal"/>
+        <line fill="none" stroke-width="0.246944" x2="5.20347"  stroke-linecap="round" x1="0.123472" y1="2.54" y2="2.54" stroke="#787878" gorn="0.0.5" id="connector0pin" class="pin"/>
+        <text fill="#8c8c8c" y="2.16958" stroke-width="0" x="2.66347"  font-size="0.881944" stroke="none" font-family="'Droid Sans'" text-anchor="middle" class="text">3</text>
+        <text fill="#8c8c8c" y="2.78694" stroke-width="0" x="5.69736"  font-size="1.23472" stroke="none" font-family="'Droid Sans'" text-anchor="start" class="text">IN</text>
+        <rect height="0.246944" fill="none" y="2.41653" x="-0.123472" stroke-width="0"  stroke="none" gorn="0.0.8" id="connector0terminal" width="0.246944" class="terminal"/>
+        <line fill="none" stroke-width="0.246944" x2="12.7"  stroke-linecap="round" x1="12.7" y1="10.0365" y2="15.1165" stroke="#787878" gorn="0.0.9" id="connector1pin" class="pin"/>
+        <g  transform="translate(12.3296,12.5765)">
+            <g >
+                <g  transform="rotate(270)">
+                    <g >
+                        <text fill="#8c8c8c" y="0" stroke-width="0" x="0"  font-size="0.881944" stroke="none" font-family="'Droid Sans'" text-anchor="middle" class="text">1</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g  transform="translate(12.9469,9.54264)">
+            <g >
+                <g  transform="rotate(270)">
+                    <g >
+                        <text fill="#8c8c8c" y="0" stroke-width="0" x="0"  font-size="1.23472" stroke="none" font-family="'Droid Sans'" text-anchor="start" class="text">ADJ</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <rect height="0.246944" fill="none" y="15.1165" x="12.5765" stroke-width="0"  stroke="none" gorn="0.0.12" id="connector1terminal" width="0.246944" class="terminal"/>
+        <text fill="#000000" y="2.83979" stroke-width="0" x="12.8588"  font-size="1.49931" stroke="none" gorn="0.0.13" id="label" font-family="'Droid Sans'" text-anchor="middle" class="text">Voltage</text>
+        <text fill="#000000" y="4.4391" stroke-width="0" x="12.8588"  font-size="1.49931" stroke="none" gorn="0.0.14" id="label" font-family="'Droid Sans'" text-anchor="middle" class="text">Regulator</text>
+        <text fill="#000000" y="6.0384" stroke-width="0" x="12.8588"  font-size="1.49931" stroke="none" gorn="0.0.15" id="label" font-family="'Droid Sans'" text-anchor="middle" class="text">Variable</text>
+    </g>
+</svg>
