@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module fritzingVersion="0.9.4.2019-12-01.CD-498" icon="Mine.png">
-    <title>My Parts</title>
-    <instances>
-        <instance moduleIdRef="Dad_VoltReg_2f5594b2d5fd7f1780e51be6fea4410c_2" modelIndex="85410039" path="/home/alison/Documents/Fritzing/parts/user/Dad_VoltReg_2f5594b2d5fd7f1780e51be6fea4410c_2.fzp">
-            <views/>
-        </instance>
-    </instances>
-</module>
